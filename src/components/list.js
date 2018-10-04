@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getListData } from '../actions';
 
@@ -6,6 +7,7 @@ class List extends Component {
     componentDidMount() {
         this.props.getListData();
     }
+
     render() {
         const { list } = this.props;
 
@@ -14,9 +16,17 @@ class List extends Component {
         });
 
         return (
-            <ul className="collection">
-                {listElements}
-            </ul>
+            <div>
+                <h1 className="center">To Do List</h1>
+                <div className="row">
+                    <div className="col s12 right-align">
+                        <Link className="btn blue-grey darken-1" to="/add">Add Item</Link>
+                    </div>
+                </div>
+                <ul className="collection">
+                    {listElements}
+                </ul>
+            </div>
         );
     }
 }
@@ -30,3 +40,5 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps, {
     getListData: getListData
 })(List);
+
+
