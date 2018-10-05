@@ -17,9 +17,7 @@ class AddItem extends Component {
         );
     }
 
-    saveItem = async (values) => {      //add asyn
-        console.log('Fom Values:', values);
-
+    saveItem = async (values) => {      //add asyn 
         await this.props.addListItem(values);   //add await 
 
         this.props.history.push('/');   //and take the user back to home(to do list)
