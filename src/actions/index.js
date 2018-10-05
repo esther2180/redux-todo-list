@@ -30,3 +30,16 @@ export function getSingleItem(id) {
         payload: resp
     }
 }
+
+export function clearSingleItem() {
+    return { type: types.CLEAR_SINGLE_ITEM };
+}
+
+export function toggleComplete(id) {
+    const resp = axios.put(`${BASE_URL}/todos/${id + API_KEY}`);
+
+    return {
+        type: types.TOGGLE_COMPLETE,
+        payload: resp
+    }
+}
