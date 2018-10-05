@@ -12,7 +12,11 @@ class List extends Component {
         const { list } = this.props;
 
         const listElements = list.map(item => {
-            return <li key={item._id} className="collection-item">{item.title}</li>
+            return (
+                <li key={item._id} className="collection-item">
+                    <Link to={`/item/${item._id}`}>{item.title}</Link>
+                </li>
+            )
         });
 
         return (
